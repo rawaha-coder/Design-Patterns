@@ -21,6 +21,9 @@ gradle-app.setting
 # Log file
 *.log
 
+# iml file
+*.iml
+
 # Package Files
 *.jar
 *.war
