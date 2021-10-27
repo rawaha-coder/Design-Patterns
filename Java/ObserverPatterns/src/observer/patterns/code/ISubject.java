@@ -1,7 +1,7 @@
 package observer.patterns.code;
 
 public interface ISubject {
-    void register(Observer o);
-    void unregister( Observer o);
-    void notifyObservers();
+    void register(IObserver o);
+    void unregister( IObserver o);
+    void notifyObservers(int i);
 }

@@ -4,34 +4,36 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Subject implements ISubject{
-    List<Observer> observerList = new ArrayList<Observer>();
-    private int _flag;
-    public int getFlag()
+
+    List<IObserver> observerList = new ArrayList<IObserver>();
+
+    private int value;
+
+    public int getValue()
     {
-        return _flag;
+        return value;
     }
 
-    public void setFlag(int _flag)
+    public void setValue(int value)
     {
-        this._flag=_flag;
-        notifyObservers();
+        this.value = value;
+        notifyObservers(value);
     }
 
     @Override
-    public void register(Observer o) {
+    public void register(IObserver o) {
         observerList.add(o);
     }
 
     @Override
-    public void unregister(Observer o) {
+    public void unregister(IObserver o) {
         observerList.remove(o);
     }
 
     @Override
-    public void notifyObservers() {
-        for(int i=0;i<observerList.size();i++)
-        {
-            observerList.get(i).update();
+    public void notifyObservers(int updatedValue) {
+        for (IObserver iObserver : observerList) {
+            iObserver.update(updatedValue, iObserver.getClass().getSimpleName());
         }
     }
 
