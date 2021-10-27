@@ -3,26 +3,30 @@ package observer.patterns.code;
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println("***Observer Pattern Demo***\n");
-        Observer o1 = new Observer();
 
-        Subject sub1 = new Subject();
-        sub1.register(o1);
-        System.out.println("Setting Flag = 5 ");
-        sub1.setFlag(5);
-        System.out.println("Setting Flag = 25 ");
-        sub1.setFlag(25);
-        sub1.unregister(o1);
-        System.out.println("Setting Flag = 50 ");
-        sub1.setFlag(50);
-        System.out.println(" **************************** ");
-        Subject sub2 = new Subject();
-        sub2.register(o1);
-        System.out.println("Setting Flag = 5 ");
-        sub2.setFlag(5);
-        System.out.println("Setting Flag = 25 ");
-        sub2.setFlag(25);
-        System.out.println("Setting Flag = 50 ");
-        sub2.setFlag(50);
+        System.out.println("*** Observer Pattern Test ***\n");
+
+        Subject subject = new Subject();
+
+        IObserver o1 = new Observer1();
+        subject.register(o1);
+
+        IObserver o2 = new Observer2();
+        subject.register(o2);
+
+        IObserver o3 = new Observer3();
+        subject.register(o3);
+
+        System.out.println("Setting value = 5 ");
+        subject.setValue(5);
+        System.out.println("Setting value = 25 ");
+        subject.setValue(25);
+        subject.unregister(o1);
+        System.out.println("Setting value = 50 ");
+        subject.setValue(50);
+        System.out.println("Setting value = 100 ");
+        subject.unregister(o2);
+        subject.setValue(100);
+
     }
 }
