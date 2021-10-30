@@ -11,28 +11,28 @@ public class RobotFactory {
     {
         return shapes.size();
     }
-    public IRobot GetRobotFromFactory(String RobotCategory) throws Exception{
-        IRobot robotCategory = null;
-        if (shapes.containsKey(RobotCategory))
+    IRobot GetRobotFromFactory(String robotType) throws Exception{
+        IRobot robotCategory= null;
+        if (shapes.containsKey(robotType))
         {
-            robotCategory = shapes.get(RobotCategory);
+            robotCategory = shapes.get(robotType);
         }
         else
         {
-            switch (RobotCategory)
+            switch (robotType)
             {
-                case "small":
-                    System.out.println("We do not have Small Robot. So we are creating a Small Robot now.");
-                            robotCategory = new SmallRobot();
-                    shapes.put("small", robotCategory);
+                case "King":
+                    System.out.println("\nWe do not have King Robot. So we are creating a King Robot now.");
+                    robotCategory = new Robot("King");
+                    shapes.put("King",robotCategory);
                     break;
-                case "large":
-                    System.out.println("We do not have Large Robot. So we are creating a Large Robot now .");
-                            robotCategory = new LargeRobot();
-                    shapes.put("large", robotCategory);
+                case "Queen":
+                    System.out.println("\nWe do not have Queen Robot. So we are creating a Queen Robot now.");
+                    robotCategory = new Robot("Queen");
+                    shapes.put("Queen",robotCategory);
                     break;
                 default:
-                    throw new Exception(" Robot Factory can create only small and large shapes");
+                    throw new Exception(" Robot Factory can create only king and queen type robots");
             }
         }
         return robotCategory;
