@@ -1,6 +1,0 @@
-# Patterns
-
-## GoF Definition: 
-
-## Concept 
-
