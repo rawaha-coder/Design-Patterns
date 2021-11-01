@@ -1,2 +1,1 @@
-# Design Patterns in Kotlin
-
+Design Patterns in Kotlin
